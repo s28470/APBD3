@@ -27,8 +27,24 @@ public abstract class MyСontainer
       Depth = depth;
       Capacity = capacity;
    }
-   
-   
+
+   public abstract void Emptying();
+
+   public virtual void AddCargo(int cargoMass)
+   {
+      if (!IsMassOk(cargoMass))
+      {
+         throw new OverfillException();
+      }
+      
+   }
+
+   public bool IsMassOk(int cargoMass)
+   {
+      return cargoMass <= Capacity;
+   }
+
+
 }
 
 public class OverfillException : Exception

@@ -2,88 +2,33 @@ namespace apbdProj3;
 
 public abstract class MyСontainer
 {
-    private static int ID = 0;
+   private static int ID = 0;
+   
+   protected int Id { get; }
+   
+   protected string Serial { get; }
+   
+   protected double Mass { get; }
+   
+   protected double Height { get; }
+   
+   protected double SelfMass { get; }
 
-    protected string type;
-
-    private int id;
-    
-    private double mass = 0;
-
-    private double height;
-
-    private double selfMass;
-
-    private double depth;
-
-    private double capacity;
-
-    private string serial;
-
-    protected MyСontainer( double height, double selfMass, double depth, double capacity)
-    {
-        this.id = ++ID;
-        this.height = height;
-        this.selfMass = selfMass;
-        this.depth = depth;
-        this.capacity = capacity;
-        serial = "KON-" + type + "-" + id;
-    }
+   protected double Depth { get; }
+   
+   protected double Capacity { get; }
 
 
-    public abstract void Emptying();
-
-    public void AddContainer(int cargoMass)
-    {
-        IsMassOk(cargoMass);
-    }
-
-    public bool IsMassOk(int cargoMass)
-    {
-        bool ok = cargoMass <= capacity;
-        if (!ok)
-        {
-            throw new OverfillException();
-        }
-        return ok;
-    }
-
-
-    public double Mass
-    {
-        get => mass;
-        set => mass = value;
-    }
-
-    public double Height
-    {
-        get => height;
-        set => height = value;
-    }
-
-    public double SelfMass
-    {
-        get => selfMass;
-        set => selfMass = value;
-    }
-
-    public double Depth
-    {
-        get => depth;
-        set => depth = value;
-    }
-
-    public double Capacity
-    {
-        get => capacity;
-        set => capacity = value;
-    }
-
-    public string Serial
-    {
-        get => serial;
-        set => serial = value;
-    }
+   protected MyСontainer(double mass, double height, double selfMass, double depth, double capacity)
+   {
+      Mass = mass;
+      Height = height;
+      SelfMass = selfMass;
+      Depth = depth;
+      Capacity = capacity;
+   }
+   
+   
 }
 
 public class OverfillException : Exception

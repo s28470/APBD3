@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.ComponentModel;
+using apbdProj3;
 
-Console.WriteLine("Hello, World!");
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        
+    }
+}
+

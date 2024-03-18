@@ -6,7 +6,7 @@ public abstract class MyСontainer
    
    protected int Id { get; }
    
-   protected string Serial { get; }
+   protected string Serial { get; set; }
    
    protected double Mass { get; }
    
@@ -15,6 +15,8 @@ public abstract class MyСontainer
    protected double SelfMass { get; }
 
    protected double Depth { get; }
+   
+   protected string Type { get; }
    
    protected double Capacity { get; }
 
@@ -37,6 +39,11 @@ public abstract class MyСontainer
          throw new OverfillException();
       }
       
+   }
+
+   protected void CreateSerial()
+   {
+      Serial = "KON-" + Type + "-" + Id;
    }
 
    public bool IsMassOk(int cargoMass)

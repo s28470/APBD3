@@ -11,15 +11,11 @@ public class LiquidContainer : AbstractContainer,IHazardNotifier
 
     public LiquidContainer(double height, double selfMass, double depth, double capacity, string cargoType, bool cargoSafe) : base(height, selfMass, depth, capacity)
     {
+        Serial = "KON" + "-L-" + Id;
         CargoType = cargoType;
         CargoSafe = cargoSafe;
     }
-
-    public override void Unload()
-    {
-        base.Unload();
-    }
-
+    
     public override void Load(double mass)
     {
         base.Load(mass);

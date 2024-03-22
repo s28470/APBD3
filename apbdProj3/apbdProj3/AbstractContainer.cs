@@ -18,6 +18,7 @@ public abstract class AbstractContainer
 
     protected AbstractContainer(double height, double selfMass, double depth, double capacity)
     {
+        Id = ++ID;
         CargoMass = 0;
         Height = height;
         SelfMass = selfMass;
@@ -28,7 +29,7 @@ public abstract class AbstractContainer
 
     public virtual void Unload()
     {
-        
+        CargoMass = 0;
     }
 
     public virtual void Load(double mass)

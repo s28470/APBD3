@@ -1,6 +1,6 @@
 namespace apbdProj3;
 
-public abstract class Container
+public abstract class AbstractContainer
 {
     Icargo Cargo { get;set; }
 
@@ -10,7 +10,7 @@ public abstract class Container
 
     public abstract string Serial { get; }
 
-    protected Container(Icargo cargo, double height, double depth, double capacity)
+    protected AbstractContainer(Icargo cargo, double height, double depth, double capacity)
     {
         Cargo = cargo;
         Height = height;

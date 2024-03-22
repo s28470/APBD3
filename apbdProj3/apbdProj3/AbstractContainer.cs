@@ -2,41 +2,46 @@ namespace apbdProj3;
 
 public abstract class AbstractContainer
 {
-    Icargo Cargo { get;set; }
+    private static int ID = 0;
+    protected int Id { get; }
+    public double CargoMass { get; set; }
 
-    double Height { get; set; }
-
-    private double Depth { get; set; }
-
+    public double Height { get; set; }
+    
+    public double SelfMass { get; set; }
+    
+    public double Depth { get; set; }
     public abstract string Serial { get; }
 
-    protected AbstractContainer(Icargo cargo, double height, double depth, double capacity)
+
+    public double Capacity { get; }
+
+    protected AbstractContainer(double height, double selfMass, double depth, double capacity)
     {
-        Cargo = cargo;
+        CargoMass = 0;
         Height = height;
+        SelfMass = selfMass;
         Depth = depth;
         Capacity = capacity;
     }
 
-    private double Capacity { get; }
 
     public virtual void Unload()
     {
-        Cargo = null;
-    }
-
-    public virtual void Load(Icargo cargo)
-    {
-        if (!IsCargoOk(cargo))
-        {
-            throw new OverfillException();
-        }
         
     }
 
-    public bool IsCargoOk(Icargo cargo)
+    public virtual void Load(double mass)
     {
-        return cargo.Mass <= Capacity;
+        if (! IsCargoOk(mass) )
+        {
+            throw new OverfillException();
+        }
+    }
+
+    public bool IsCargoOk(double mass)
+    {
+        return CargoMass + mass <= Capacity;
     }
     
     

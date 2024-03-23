@@ -33,6 +33,8 @@ public class GasContainer : AbstractContainer,IHazardNotifier
         CargoMass += mass;
     }
 
+
+
     public void SendHazardNotify()
     {
         Console.WriteLine("Unsafe situation in container : " + Id);

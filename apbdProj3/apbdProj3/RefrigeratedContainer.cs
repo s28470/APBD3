@@ -3,8 +3,8 @@ namespace apbdProj3;
 public class RefrigeratedContainer : AbstractContainer
 {
     
-    public ProductInfo ProductInformation { get; }
-    
+    public ProductInfo ProductInformation { get; set; }
+
     public string CargoType { get; }
     
     public double Temperature { get; }
